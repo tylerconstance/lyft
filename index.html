@@ -1,0 +1,140 @@
+<!doctype html>
+<!--!
+Change transportation forever. Hire me!
+https://www.tylerconstance.com
+
+                                   oooooooo
+oooooooooooooooooooooooo           oooooooo
+oooooooooooooooooooooooo           oooooooo
+oooooooooooooooooooooooo           oooooooo
+oooooooooooooooooooooooo   ooooooo oooooooo     ooooooooo     oooooo  oooooo
+        oooooooo ooooooo   ooooooo oooooooo  ooooooooooooooo  ooooooooooooooo
+        oooooooo ooooooo   ooooooo oooooooo oooooo     oooooo ooooooooooooo
+        oooooooo ooooooo   ooooooo oooooooo oooooo     oooooo oooooooo
+        oooooooo ooooooo   ooooooo oooooooo ooooooooooooooooo oooooooo
+        oooooooo oooooooo oooooooo oooooooo ooooooooooooooo   oooooooo
+        oooooooo ooooooooooooooooo oooooooo  ooooooooo        oooooooo
+         ooooooo ooooooooooooooooo  ooooooo   ooooooo          ooooooo
+          ooooooo  ooooooooooooooo   ooooooo   ooooooo          ooooooo
+            oooooo       ooooooooo     oooooo    oooooo           oooooo
+                   oooooooooooooo
+                   ooooooooooooo
+                   oooooooooo
+-->
+<html>
+  <head>
+    <title>Lyft Code Challenge</title>
+
+    <link href="style/normalize.css" rel="stylesheet" />
+    <link href="style/style.css" rel="stylesheet" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-resource.min.js"></script>
+    <script src="js/grid.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/domManip.js"></script>
+    <!-- <script src="js/controllers/MainController.js"></script> -->
+
+    <meta http-equiv="Content-Language" content="en_US">
+    <meta name="description" content="Lyft Code Challenge">
+
+    <!-- Mobile viewport constraint -->
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-40690121-2', 'tylerconstance.com');
+    ga('send', 'pageview');
+
+    </script>
+
+  </head>
+
+  <body ng-app="lyftApp">
+
+    <!-- <header>
+
+    </header>
+    <img src="img/hero.jpg">
+    <div class="banner">
+      <h1>Drive further.</h1>
+    </div>
+
+    <div id="mainImage"></div> -->
+
+    <div id="content" ng-controller="MainController">
+      <header><div id="logoContainer"><img src="img/logo.png" class="logo"></div><h1 id="bannerTitle">{{title}}</h1><div id="dummy"><!--dummy to keep the title centered --></div></header>
+
+      <div class="heroImageContainer">
+        <div class="heroImage"></div>
+      </div>
+
+      <div class="ctaBar"><h2 style="display: inline-block">Let Tyler take the wheel.</h2><a href="mailto:tyler@tylerconstance.com?subject=You've Got The Job!"><div class="button email">OPEN EMAIL CLIENT</div></a></div>
+
+      <section id="meetTyler">
+        <p><a href="http://tylerconstance.com" target="_blank"><strong>Meet your new employee &rsaquo;</strong></a></p>
+        <p>Need an entry-level software developer? Tyler is a scrappy, driven, and clever guy. Hire him today, and he'll catch the next flight to meet you in San Francisco.</p>
+      </section>
+
+      <section id="instructions">
+        <h2>How This Works</h2>
+        <div class="instructionsContainer">
+          <div class="instructionPanel">
+            <h2 class="thin">1. Pick Points</h2>
+            <p>Click four grid segments to set coordinates for driver 1 (A), destination 1 (B), driver 2 (C), and destination 2 (D).</p>
+            <img src="img/grid-1.jpg" class="screenshot">
+          </div>
+          <div class="instructionPanel">
+            <h2 class="thin">2. Get Data</h2>
+            <p>The webapp determines if it's more efficient for Driver 1 to pick up and drop off Driver 2, or vice-versa.</p>
+            <img src="img/grid-2.jpg" class="screenshot">
+          </div>
+          <div class="instructionPanel">
+            <h2 class="thin">3. Hire Tyler</h2>
+            <p>He's got a lot of heart, and loves finding solutions. Imagine what this guy could do with a little mentoring! :)</p>
+            <img src="img/grid-3.jpg" class="screenshot">
+          </div>
+        </div>
+      </section>
+      <!-- Here's the street-like grid with the detour calculator inside -->
+      <section id="grid">
+        <h2>Detour Calculator</h2>
+        <div id="grid">
+          <div ng-repeat="block in grid" class="block" ng-click="setPoints($index); col={background:'green'}" ng-style="{'background':this.grid[$index].color}">{{this.grid[$index].point}}</div>
+        </div>
+        <div id="printout"><p>{{ printout }}</p></div>
+        <div class="button" id="reset" ng-click="resetGrid()">CLEAR GRID</div>
+      </section>
+
+      <section id="notes">
+        <h2 style="text-align: center;">A Few Notes</h2>
+        <small>This code was written to solve the code challenge presented in the description for the <a href="https://jobs.lever.co/lyft/3818adae-c612-4e7c-9dac-49084eca7067" target="_blank">New Grad Software Engineer opening</a>. I was initally going to write a quick command line tool in Tcl or C to spit out some easy numbers, but I've been building up some front end skills lately, and I thought it may be a fun project to get a feel for AngularJS. I just wanted to make something cool and challenge myself.
+        <br><br>
+        The wording of the challenge was a slightly ambiguous, and I'd normally ask for clarification to make sure I know what I'm doing. I mainly assumed I could use a uniform grid of an arbitrary size instead of a proper map (which is kind of a big thing to guess on), but that seemed most appropriate, scaled for the job description.
+        <br><br>
+        Currently, the app determines if it's more efficient for Driver A to take Driver C to point D while en route to B, or for C to take A to B en route to D. If the detour length would be equal, the app checks to see if one route is more efficient than the other. If not, the driver is simply assigned randomly. As an added touch, the "trail" is green when the current path is on the way to the driver's end destination, and red if the driver is diverging from his initial path. In a later version, a few more conditional statements could be added to mark the entire detour as red. I would also change the call to action functions (how many of you guys are actually using your default mail client at work?).
+        <br><br>
+        I'm familiar writing model/controller code in VHDL for FPGA modules, and I wish I could have decluttered MainController.js more by moving most of the functions to grid.js, but I wasn't sure how I could access $scope otherwise (that would be a question for one of the senior guys). I also didn't add many media query breakpoints, though I'd normally code mobile first, and I'd typically use SASS to organize the CSS. For this project, that seemed excessive.
+        <br><br>
+        I thought about using Bootstrap, but decided ultimately to write the HTML and CSS outright instead of using a framework, especially since I planned on using flexbox instead of a grid system. To build this project, I used HTML, CSS, jQuery, AngularJS, Adobe Illustrator, Adobe Photoshop, some photography and design skills, several scraps of notebook paper, and three differently colored pens.
+        <br><br>
+        I'm really excited about the idea of working as a new software developer for Lyft. If you guys are willing to hire me, I'll be on the next plane to San Francisco.
+        </small>
+      </section>
+
+      <div class="ctaBar"><h2 style="display: inline-block;">Thank you, Lyft.</h2><a href="mailto:tyler@tylerconstance.com?subject=You've Got The Job!"><div class="button email">OPEN EMAIL CLIENT</div></a></div>
+
+    </div>
+
+<!-- Modules -->
+<script src="js/app.js"></script>
+
+<!-- Controllers -->
+<script src="js/controllers/MainController.js"></script>
+
+  </body>
+</html>
