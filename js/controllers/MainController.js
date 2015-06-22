@@ -157,13 +157,13 @@ app.controller('MainController', ['$scope', '$timeout', function($scope, $timeou
 
     if (driverOneDetour > driverTwoDetour){
       // Driver 2 has the shorter detour
-      console.log("Driver C has the shorter detour ( " + driverTwoDetour + " vs " + driverOneDetour + " ). He's taking Driver A to B before going to D.");
-      $scope.printout = "Driver C has the shorter detour ( " + driverTwoDetour + " vs " + driverOneDetour + " ). He's taking Driver A to B before going to D.";
+      console.log("Driver C has the shorter detour ( " + driverTwoDetour + " vs " + driverOneDetour + " ). This driver will take Driver A to B before going to D.");
+      $scope.printout = "Driver C has the shorter detour ( " + driverTwoDetour + " vs " + driverOneDetour + " ). This driver will take Driver A to B before going to D.";
       return $scope.grid[C];
     } else if (driverOneDetour < driverTwoDetour) {
       // Driver 1 has the shorter detour
       console.log("Driver A has the shorter detour.( " + driverOneDetour + " vs " + driverTwoDetour + " ) He's picking up Driver C and going to B");
-      $scope.printout = "Driver A has the shorter detour.( " + driverOneDetour + " vs " + driverTwoDetour + " ) He's picking up Driver C and going to B";
+      $scope.printout = "Driver A has the shorter detour ( " + driverOneDetour + " vs " + driverTwoDetour + " ). This driver will take Driver C to D before going to B";
       return $scope.grid[A];
     } else {
       // Drivers have the same detour
@@ -182,7 +182,7 @@ app.controller('MainController', ['$scope', '$timeout', function($scope, $timeou
         return $scope.grid[C];
       } else {
         console.log("Drivers have the same detour distance (" + driverOneDetour + " spaces) and equally lengthy drives (" + driverOneDriveLength + " spaces). Driver is assigned randomly.");
-        $scope.printout = "Drivers have the same detour distance (" + driverOneDetour + " spaces) and equally lengthy (" + driverOneDriveLength + " spaces). Driver is assigned randomly.";
+        $scope.printout = "Drivers have the same detour distance (" + driverOneDetour + " spaces) and equally lengthy drives (" + driverOneDriveLength + " spaces). Driver is assigned randomly.";
         var random = Math.floor(Math.random() * 10 + 1);
         if (random < 6){
           console.log("Driver 1 wins the coin toss.");
