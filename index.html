@@ -25,8 +25,10 @@ oooooooooooooooooooooooo   ooooooo oooooooo     ooooooooo     oooooo  oooooo
   <head>
     <title>Lyft Code Challenge</title>
 
-    <link href="style/normalize.css" rel="stylesheet" />
-    <link href="style/style.css" rel="stylesheet" />
+    <link href="style/normalize.css" rel="stylesheet">
+    <link href="style/style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
+    <link rel="shortcut icon"  type="image/png" href="img/favicon.ico">
     <script src="js/jquery.min.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/angular-resource.min.js"></script>
@@ -55,16 +57,6 @@ oooooooooooooooooooooooo   ooooooo oooooooo     ooooooooo     oooooo  oooooo
   </head>
 
   <body ng-app="lyftApp">
-
-    <!-- <header>
-
-    </header>
-    <img src="img/hero.jpg">
-    <div class="banner">
-      <h1>Drive further.</h1>
-    </div>
-
-    <div id="mainImage"></div> -->
 
     <div id="content" ng-controller="MainController">
       <header><div id="logoContainer"><img src="img/logo.png" class="logo"></div><h1 id="bannerTitle">{{title}}</h1><div id="dummy"><!--dummy to keep the title centered --></div></header>

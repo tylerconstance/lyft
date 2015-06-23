@@ -20,6 +20,7 @@ a {
 
 section{
   padding: 40px 15px;
+  width: calc(100% - 30px);
   max-width: 700px;
   margin: 0 auto;
   text-align: center;
@@ -56,12 +57,6 @@ div#logoContainer{
   -webkit-flex-grow: 1;
   flex-grow: 1;
   text-align: center;
-}
-
-div.banner{
-  background: #EA0B8C;
-  height: 60px;
-  line-height: 60px;
 }
 
 h1{
@@ -138,7 +133,7 @@ div.ctaBar{
   color: white;
   text-align: center;
   font-family: helvetica;
-  font-width: 300;
+  font-weight: 300;
 }
 
 div.ctaBar h2{
@@ -200,10 +195,6 @@ img.screenshot{
   width: 100%;
 }
 
-section#grid{
-  margin: 0 auto;
-}
-
 div#printout{
   width: 60vh;
   padding: 10px;
@@ -224,7 +215,8 @@ section#notes {
   }
 
   div.instructionPanel {
-    width: 60%;
+    width: 80%;
+    max-width: 350px;
   }
 
   div#grid{
@@ -242,7 +234,7 @@ section#notes {
   }
 
   div#printout{
-    width: 90vw;
+    width: calc(90vw - 20px);
     padding: 10px;
     margin: 0 auto;
   }
@@ -254,3 +246,12 @@ section#notes {
   h2 {
     font-size: 1.3em;
   }
+  div.ctaBar h2{
+    padding-right: 0;
+    color: white;
+    font-weight: 300;
+  }
+  div.ctaBar.button.email{
+    margin-bottom: 20px;
+  }
+}
