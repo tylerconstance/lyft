@@ -1,5 +1,5 @@
 <!doctype html>
-<!--!
+<!--
 Change transportation forever. Hire me!
 https://www.tylerconstance.com
 
@@ -78,17 +78,17 @@ oooooooooooooooooooooooo   ooooooo oooooooo     ooooooooo     oooooo  oooooo
           <div class="instructionPanel">
             <h2 class="thin">1. Pick Points</h2>
             <p>Click four grid segments to set coordinates for driver 1 (A), destination 1 (B), driver 2 (C), and destination 2 (D).</p>
-            <img src="img/grid-1.jpg" class="screenshot">
+            <img src="img/grid-1.jpg" class="screenshot" alt="A picture of the grid calculator with four cordinates selected.">
           </div>
           <div class="instructionPanel">
             <h2 class="thin">2. Get Data</h2>
             <p>The webapp determines if it's more efficient for Driver 1 to pick up and drop off Driver 2, or vice-versa.</p>
-            <img src="img/grid-2.jpg" class="screenshot">
+            <img src="img/grid-2.jpg" class="screenshot"alt="A picture of the grid calculator at a finished state with the four points connected by colored grid blocks representing the most efficient route.">
           </div>
           <div class="instructionPanel">
             <h2 class="thin">3. Hire Tyler</h2>
             <p>He's got a lot of heart, and loves finding solutions. Imagine what this guy could do with a little mentoring! :)</p>
-            <img src="img/grid-3.jpg" class="screenshot">
+            <img src="img/grid-3.jpg" class="screenshot" alt="A headshot of Tyler.">
           </div>
         </div>
       </section>
@@ -108,9 +108,9 @@ oooooooooooooooooooooooo   ooooooo oooooooo     ooooooooo     oooooo  oooooo
         <br><br>
         The wording of the challenge was a slightly ambiguous, and I'd normally ask for clarification to make sure I know what I'm doing. I mainly assumed I could use a uniform grid of an arbitrary size instead of a proper map (which is kind of a big thing to guess on), but that seemed most appropriate, scaled for the job description.
         <br><br>
-        Currently, the app determines if it's more efficient for Driver A to take Driver C to point D while en route to B, or for C to take A to B en route to D. If the detour length would be equal, the app checks to see if one route is more efficient than the other. If not, the driver is simply assigned randomly. As an added touch, the "trail" is green when the current path is on the way to the driver's end destination, and red if the driver is diverging from his initial path. In a later version, a few more conditional statements could be added to mark the entire detour as red. I would also change the call to action functions to do something more useful than opening a default mail client (few people tend to use the default client at work).
+        This app determines if it's more efficient for Driver A to take Driver C to point D while en route to B, or for C to take A to B before going to D. If the detour length would be equal, the app checks to see if one route is more efficient than the other. If not, the driver is simply assigned randomly. As an added touch, the "trail" is green when the current path is on the way to the driver's end destination, and red if the driver is diverging from his initial path. In a later version, a few more conditional statements could be added to mark the entire detour as red. I would also change the call to action functions to do something more useful than opening a default mail client (few people tend to use the default client at work).
         <br><br>
-        I'm familiar writing model/controller code in VHDL for FPGA modules, and I wish I could have decluttered MainController.js more by moving more of the functions to grid.js, but I wasn't sure how I could access my grid otherwise (that would be a question for one of the senior guys). I also didn't add many media query breakpoints, though I'd normally code mobile first, and I'd typically use SASS to organize the CSS. For this project, that seemed excessive.
+        I'm familiar writing model/controller code in VHDL for FPGA modules, and I wish I could have decluttered MainController.js more by moving more of the functions to grid.js, but I wasn't sure how I could access my grid otherwise (that would be a question for one of the senior guys). I also didn't add many media query breakpoints, though I'd normally code mobile first, and I'd typically use SASS to organize the CSS. For this project, that seemed excessive, but feel free to look at <a href="http://tylerconstance.com/" target="_blank">my website</a> or any <a href="http://tylerconstancephotography.com/blog" target="_blank">other websites</a> I've done to see more responsive design.
         <br><br>
         I thought about using Bootstrap, but decided ultimately to write the HTML and CSS outright instead of using a framework, especially since I planned on using flexbox instead of a grid system. To build this project, I used HTML, CSS, jQuery, AngularJS, Adobe Illustrator, Adobe Photoshop, some photography and design skills, several scraps of notebook paper, and three colors of ink.
         <br><br>

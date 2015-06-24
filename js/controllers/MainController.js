@@ -1,23 +1,27 @@
 app.controller('MainController', ['$scope', '$timeout', function($scope, $timeout){
   //set attributes
   $scope.title = "Lyft Code Challenge";
-  $scope.grid = generateGrid(side);
-  $scope.printout;
+  $scope.grid = generateGrid(side); // Generates an 8x8 grid using the variable side, declared in grid.js
+  $scope.printout; // The route efficiency calculation, to be displayed under the grid
 
   $scope.setPoints = function(index){
+    // This function is called when the user clicks a grid block.
+    // The function dynamically assigns coordinate pairs A-D
+    // If all four coordinates are set, clicks to grid blocks will
+    // show the grid coordinates and index in the console, using the console.log statement below
     console.log("The value of index " + index + " is (" + this.grid[index].xVal + "," + this.grid[index].yVal + ").");
 
+    // Initialize clearer variable names for A-D once the route has been determined
     var driver;
     var location;
     var nextStop;
     var finalDest;
 
-    // A-D declared in grid.js
+    // A-D are global variables declared in grid.js
     if (A == null){
       A = index;
       this.grid[index].point="A";
       this.grid[index].color="lightskyblue";
-      //there's probably a cleaner way to do this instead of creating a color property in the block object
     } else if (B == null){
       B = index;
       this.grid[index].color="lightskyblue";
@@ -142,18 +146,23 @@ app.controller('MainController', ['$scope', '$timeout', function($scope, $timeou
     var Dx = $scope.grid[D].xVal;
     var Dy = $scope.grid[D].yVal;
 
+    // Drive length is the full potential drive, including the detour, for each driver.
+    // Driver 1: A -> C -> D -> B
+    // Driver 1: C -> A -> B -> D
+
     var driverOneDriveLength = (Math.abs(Ax - Cx) + Math.abs(Ay - Cy) + Math.abs(Cx - Dx) + Math.abs(Cy - Dy)+ Math.abs(Dx - Bx) + Math.abs(Dy - By));
     var driverTwoDriveLength = (Math.abs(Cx - Ax) + Math.abs(Cy - Ay) + Math.abs(Ax - Bx) + Math.abs(Ay - By)+ Math.abs(Bx - Dx) + Math.abs(By - Dy));
 
-    driverOneDetour = Math.abs(
-        (Math.abs(Ax - Bx) + Math.abs(Ay - By))
-      - (Math.abs(Ax - Cx) + Math.abs(Ay - Cy) + Math.abs(Cx - Dx) + Math.abs(Cy - Dy)+ Math.abs(Dx - Bx) + Math.abs(Dy - By))
-    );
+    // Drive Detour is the difference of each driver's initial route and above potential drive length
 
-    driverTwoDetour = Math.abs(
-        (Math.abs(Cx - Dx) + Math.abs(Cy - Dy))
-      - (Math.abs(Cx - Ax) + Math.abs(Cy - Ay) + Math.abs(Ax - Bx) + Math.abs(Ay - By)+ Math.abs(Bx - Dx) + Math.abs(By - Dy))
-    );
+    var driverOneDetour = Math.abs(
+        (Math.abs(Ax - Bx) + Math.abs(Ay - By)) - driverOneDriveLength);
+
+    var driverTwoDetour = Math.abs(
+        (Math.abs(Cx - Dx) + Math.abs(Cy - Dy)) - driverTwoDriveLength);
+
+
+    // This next block could later be determined with a helper function to make the code simpler and more readable
 
     if (driverOneDetour > driverTwoDetour){
       // Driver 2 has the shorter detour
@@ -167,8 +176,7 @@ app.controller('MainController', ['$scope', '$timeout', function($scope, $timeou
       return $scope.grid[A];
     } else {
       // Drivers have the same detour
-      // The driver should be whomever would have the longest route
-      // (this driver would earn the most money for Lyft)
+      // The driver should be whomever would have the shorter overall route
       // If these are the same, the drivers flip a coin
 
       // In a later version of this code, I'd likely make this a separate function to keep the code clean.
@@ -198,6 +206,7 @@ app.controller('MainController', ['$scope', '$timeout', function($scope, $timeou
   }
 
   $scope.resetGrid = function(){
+    // This function clears the grid and resets the coordinate variables for another calculation.
     console.log("Entered function");
     $scope.grid = generateGrid(side);
     $scope.printout = "";
@@ -208,6 +217,3 @@ app.controller('MainController', ['$scope', '$timeout', function($scope, $timeou
   }
 
 }]);
-
-// TO DO --> Update printout & reevaluate driver selection in a tie
-// Also, polish text.

@@ -61,7 +61,7 @@ div#logoContainer{
 
 h1{
   color: white;
-  font-family: 'helvetica-neue', sans-serif;
+  font-family: 'helvetica-neue', helvetica, sans-serif;
   letter-spacing: 1px;
   font-weight: 300;
   text-align: center;
@@ -206,6 +206,8 @@ section#notes {
   color: #333;
   line-height: 1.5;
 }
+
+/*Normally I'd develop this mobile-first and with more breakpoints, but again, the main focus for this code challenge was the javascript*/
 
 @media screen and (max-width: 700px){
   div.instructionsContainer {

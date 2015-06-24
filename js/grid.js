@@ -12,18 +12,17 @@ var B; // Driver 1, destination
 var C; // Driver 2, initial location
 var D; // Driver 2, Destination
 
-var color;
-var scenario;
+// var color; // Color of each block
+var scenario; // Scenario 0 is Driver 1 as the driver. Scenario 1 is Driver 2
 
 generateGrid = function(side){
-
-  // alert("You entered the function!");
+  // Generates each grid block's index and coordinate values
   var area = side*side;
   console.log("The area is "+ area);
   var grid = {};
   for (i = 0; i < area; i++){
 
-    // lazy initialization
+    // "lazy initialization"
     if (!grid[i]) grid[i] = []
     grid[i] = new Block(side, i);
   }
