@@ -13,6 +13,7 @@ $(document).ready(function(){
     }
 
     // Next, let's make the hero image a little more parallax-y
+    $("div.heroImage").css("-moz-transform","translate3d(0px, "+ currentScroll*.5 +"px, 0px)");
     $("div.heroImage").css("-webkit-transform","translate3d(0px, "+ currentScroll*.5 +"px, 0px)");
     $("div.heroImage").css("transform","translate3d(0px, "+ currentScroll*.5 +"px, 0px)");
 

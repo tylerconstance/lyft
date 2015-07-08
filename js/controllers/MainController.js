@@ -72,7 +72,7 @@ app.controller('MainController', ['$scope', '$timeout', function($scope, $timeou
 
   navigate = function(location, nextStop, finalDest){
 
-    if (location === finalDest){
+    if ((location === finalDest)&&(nextStop === null)){
       console.log("You made it!");
     } else if (location !== nextStop) {
 
@@ -193,13 +193,13 @@ app.controller('MainController', ['$scope', '$timeout', function($scope, $timeou
         $scope.printout = "Drivers have the same detour distance (" + driverOneDetour + " spaces) and equally lengthy drives (" + driverOneDriveLength + " spaces). Driver is assigned randomly.";
         var random = Math.floor(Math.random() * 10 + 1);
         if (random < 6){
-          console.log("Driver 1 wins the coin toss.");
-          $scope.printout += " Driver 1 wins the coin toss.";
+          console.log("Driver A wins the coin toss.");
+          $scope.printout += " Driver A wins the coin toss.";
           return $scope.grid[A];
         } else {
-          console.log("Driver 2 wins the coin toss.");
-          $scope.printout += " Driver 2 wins the coin toss.";
-          return $scope.grid[A];
+          console.log("Driver C wins the coin toss.");
+          $scope.printout += " Driver C wins the coin toss.";
+          return $scope.grid[C];
         }
       }
     }
